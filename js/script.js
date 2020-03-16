@@ -10,8 +10,8 @@ FSJS project 2 - List Filter and Pagination
 
 // function separates items into pages.
   const showPage = ( page, list ) => {
-    const lowNumber = (pageNumber * displayTotal) - displayTotal;
-    const highNumber = (pageNumber * displayTotal) - 1;
+    const lowNumber = (page * displayTotal) - displayTotal;
+    const highNumber = (page * displayTotal) - 1;
     for (let i = 0; i < studentItems.length; i++) {
       if (i >= lowNumber && i <= highNumber) {
         studentItems[i].style.display = 'block';
@@ -38,6 +38,7 @@ FSJS project 2 - List Filter and Pagination
     }
   };
   appendPageLinks (studentItems);
+
 // Defining variables here since they did not exist up to this point.
   const navUl = document.querySelector('.pagination ul');
 // The class name "active" and it's associated CSS is assigned to the first page of items.
@@ -50,7 +51,7 @@ FSJS project 2 - List Filter and Pagination
   navUl.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') {
       let anchor = e.target;
-      let activeA = navUl.querySelector('.active')
+      let activeA = navUl.querySelector('.active');
       pageNumber = anchor.textContent;
       showPage (pageNumber, studentItems);
       activeA.classList.remove("active");
