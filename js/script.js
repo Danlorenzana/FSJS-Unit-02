@@ -30,11 +30,12 @@ FSJS project 2 - List Filter and Pagination
     let ul = document.createElement('ul');
     div.appendChild(ul);
     for (let i = 0; i < totalPages; i++) {
-      let anchor = document.createElement('a');
+      let a = document.createElement('a');
       let li = document.createElement('li');
       ul.appendChild(li);
-      anchor.textContent = i + 1;
-      li.appendChild(anchor);
+      a.href = "#";
+      a.textContent = i + 1;
+      li.appendChild(a);
     }
   };
   appendPageLinks (studentItems);
